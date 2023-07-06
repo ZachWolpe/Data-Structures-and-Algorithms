@@ -55,6 +55,16 @@ class BinarySearchTree {
             root = node;
         }
 
+        // add a destructor
+        void destroy(Node* node) {
+            // recursive destructor.
+            if (node->left)  destroy(node->left);
+            if (node->right) destroy(node->right);
+            delete node;
+        };
+
+        ~BinarySearchTree() {destroy(root);}
+
         bool insert(int value) {
             Node* node = new Node(value);
             Node* temp = root;
