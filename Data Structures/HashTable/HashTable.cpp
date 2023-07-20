@@ -3,6 +3,17 @@
 @file HashTable.cpp
 
 
+
+Big O
+    Note `N` is the size of the hashtable, not the number of elements in the hashtable.
+    Thus O(1) is constant time, not O(N).
+    - lookup:                           O(1)
+    - insert:                           O(1)
+    - delete:                           O(1)
+    
+    It is treated as O(1) because the size of the hashtable is fixed, it is theoretically possible to have a collision for every key, but this is highly unlikely.
+
+
 : zach wolpe
 : zach.wolpe@medibio.com.au
 : 04 July 2023
@@ -28,7 +39,7 @@ public:
 
 class HashTable {
 private:
-    static const int SIZE = 7;
+    static const int SIZE = 7; // static shared by all instances of class.
     Node* dataMap[SIZE];
 
     int hashmap(std::string key) {
@@ -92,6 +103,8 @@ public:
         return 0;
     };
 
+
+
     std::vector<std::string> keys() {
         std::vector<std::string> allKeys;
         for (int i=0; i<SIZE; i++) {
@@ -103,9 +116,6 @@ public:
         }
         return allKeys;
     }
-
-
-
 };
 
 

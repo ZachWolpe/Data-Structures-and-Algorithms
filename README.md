@@ -10,5 +10,5 @@ Profiling basic data structures and algorithms in `C++` & `Python`, to understan
 ```
 : Zach Wolpe
 : zach.wolpe@medibio.com.au
-: 04 July 2023
+: 20 July 2023
 ```

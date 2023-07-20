@@ -1,7 +1,7 @@
 
 
-from modules.dependencies   import *
-from modules.profiler       import *
+from ..modules.dependencies   import *
+from ..modules.profiler       import *
 
 
 if __name__ == '__main__':

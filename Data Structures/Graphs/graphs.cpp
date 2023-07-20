@@ -2,6 +2,33 @@
 ========================================================================
 @file graphs.cpp
 
+Big O
+------
+
+Space Complexity:
+    Let 
+        V := number of vertices
+        E := number of edges
+
+    Adjacent  matrix:   O(|V|^2)
+    Adjacency list:     O(|V|+|E|)
+
+Time Complexity:
+    Add Vertex:
+        Adjacent  matrix:   O(|V|^2)
+        Adjacency list:     O(1)
+    
+    Add Edge:
+        Adjacent  matrix:   O(1)
+        Adjacency list:     O(1)
+
+    Remove Edge:
+        Adjacent  matrix:   O(1)
+        Adjacency list:     O(1)
+
+    Remove Vertex:
+        Adjacent  matrix:   O(|V|^2)
+        Adjacency list:     O(V)
 
 : zach wolpe
 : zach.wolpe@medibio.com.au
@@ -31,6 +58,7 @@ public:
             kvPair++;
         }
     }
+    
     bool addVertex(std::string vertex) {
         if (adjList.count(vertex) == 0) {
             adjList[vertex];
@@ -46,7 +74,7 @@ public:
             return true;
         }
         return false;
-    }
+    };
 
     bool removeEdge(std::string vertex1, std::string vertex2) {
         if (adjList.count(vertex1) != 0 && adjList.count(vertex2) != 0) {
@@ -55,16 +83,16 @@ public:
             return true;
         }
         return false;
-    }
+    };
 
     bool removeVertex(std::string vertex) {
         if (adjList.count(vertex) == 0) return false;
-        for (auto otherVertex : adjList[vertex]) {
+        for (auto otherVertex : adjList.at(vertex)) {
             adjList.at(otherVertex).erase(vertex);
         }
         adjList.erase(vertex);
         return true;
-    }
+    };
 };
 
 int main() {
